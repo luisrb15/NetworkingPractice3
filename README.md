@@ -9,7 +9,7 @@
     - Office 4: 30 Hosts - Public Subnet
     Network ID 192.168.0.0/20
 
-![subnetting](/Networking-para-git/Subnetting.png)
+![subnetting](Networking-para-git/Subnetting.png)
 
 ## How to create 
     1) Clone the repository
