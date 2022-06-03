@@ -14,7 +14,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "office1_ec2" {
     ami = data.aws_ami.ubuntu.id
     subnet_id = aws_subnet.office1.id
-    vpc_security_group_ids = [aws_security_group.private.id]
+    vpc_security_group_ids = [aws_security_group.private.id, aws_security_group.allow_ssh_private.id]
     associate_public_ip_address = false
     key_name = aws_key_pair.luiskp.key_name
     instance_type = "t2.micro"
@@ -26,7 +26,7 @@ resource "aws_instance" "office1_ec2" {
 resource "aws_instance" "office2_ec2" {
     ami = data.aws_ami.ubuntu.id
     subnet_id = aws_subnet.office2.id
-    vpc_security_group_ids = [aws_security_group.private.id]
+    vpc_security_group_ids = [aws_security_group.private.id, aws_security_group.allow_ssh_private.id]
     associate_public_ip_address = false
     key_name = aws_key_pair.luiskp.key_name
     instance_type = "t2.micro"
@@ -38,7 +38,7 @@ resource "aws_instance" "office2_ec2" {
 resource "aws_instance" "office3_ec2" {
     ami = data.aws_ami.ubuntu.id
     subnet_id = aws_subnet.office3.id
-    vpc_security_group_ids = [aws_security_group.private.id]
+    vpc_security_group_ids = [aws_security_group.private.id, aws_security_group.allow_ssh_private.id]
     associate_public_ip_address = false
     key_name = aws_key_pair.luiskp.key_name
     instance_type = "t2.micro"
@@ -50,7 +50,7 @@ resource "aws_instance" "office3_ec2" {
 resource "aws_instance" "office4remote_ec2" {
     ami = data.aws_ami.ubuntu.id
     subnet_id = aws_subnet.office4remote.id
-    vpc_security_group_ids = [aws_security_group.allow_ssh.id, aws_security_group.private.id]
+    vpc_security_group_ids = [aws_security_group.allow_ssh.id]
     associate_public_ip_address = true
     key_name = aws_key_pair.luiskp.key_name
     instance_type = "t2.micro"
